@@ -1,7 +1,4 @@
-// Import React
 import React from 'react';
-
-// Import Spectacle Core tags
 import {
   BlockQuote,
   Cite,
@@ -12,12 +9,19 @@ import {
   Quote,
   Slide,
   Text,
+  Magic,
+  Appear,
+  Layout,
+  Fit,
+  Fill,
+  Image,
+  Notes,
+  CodePane
 } from 'spectacle';
-
-// Import theme
 import createTheme from 'spectacle/lib/themes/default';
+import CodeSlide from 'spectacle-code-slide';
 
-// Require CSS
+const kotlinLogo = require('./assets/kotlin-logo.png');
 require('normalize.css');
 
 const theme = createTheme(
@@ -37,58 +41,57 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
-        transition={['zoom', 'slide']}
-        transitionDuration={500}
         theme={theme}
       >
-        <Slide transition={['zoom']} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
+        <Slide>
+          <Heading size={1} caps lineHeight={1} textColor="secondary">
+            "Server side" languages in the browser
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            open the presentation/index.js file to get started
-          </Text>
+          <Heading size={3} textColor="tertiary" fit bold>
+            For those of you who hate Javascript
+          </Heading>
         </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>
-            Typography
-          </Heading>
-          <Heading size={1} textColor="secondary">
-            Heading 1
-          </Heading>
-          <Heading size={2} textColor="secondary">
-            Heading 2
-          </Heading>
-          <Heading size={3} textColor="secondary">
-            Heading 3
-          </Heading>
-          <Heading size={4} textColor="secondary">
-            Heading 4
-          </Heading>
-          <Heading size={5} textColor="secondary">
-            Heading 5
-          </Heading>
-          <Text size={6} textColor="secondary">
-            Standard text
-          </Text>
+
+        <Slide>
+          <Image src={kotlinLogo} />
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            Standard List
-          </Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
+
+        <Slide>
+          <Appear><Text margin="40px 0">Made by Jetbrains</Text></Appear>
+          <Appear><Text margin="40px 0">Statically typed language</Text></Appear>
+          <Appear><Text margin="40px 0">Compiles to JVM bytecode, Javascript and native code</Text></Appear>
+
+          <Notes>
+            <p>Extremely solid Java interop. Easy to use entire Java ecosystem, Spring, Maven, Gradle etc</p>
+            <p>Explain JVM</p>
+            <p>Been in development since 2011, 1.0 released in 2016</p>
+            <p>Gaining traction lately, officially supported language on Android. Now used for Gradle. Used by Uber</p>
+            <p>
+              Streamlined version of Java, with modern language design making it very nice to work in. <br />
+              Strong functional design <br />
+              Terse yet readable syntax (easier than Scala) <br />
+            </p>
+            <p>Worth considering for your server side projects</p>
+          </Notes>
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
-          </BlockQuote>
+
+        <Slide>
+          <Notes>
+            <div>
+              Features:
+              <ul>
+                <li>Null safety</li>
+                <li>Data classes</li>
+                <li>Unchecked exceptions</li>
+                <li>Extension functions</li>
+                <li>Coroutines (async / await and more)</li>
+                <li>Delegation</li>
+                <li>Builder syntax (will be useful later)</li>
+              </ul>
+            </div>
+          </Notes>
         </Slide>
+
       </Deck>
     );
   }
